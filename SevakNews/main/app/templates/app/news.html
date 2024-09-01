@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block header %}
+    {% include 'include/_nav.html' %}
+{% endblock %}
+
+{% block main %}
+    <link rel="stylesheet" href="{% static 'css/registration__style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/news__style.css' %}">
+    
+    <div class="author-news">
+        <div class="news">
+            <img class='news-image' src="{{ news.photo.url }}" alt="Картинка новости">
+            <div class="news-content">
+                <span class="category">Категория: {{ news.category }}</span>
+                <h2 class="title">{{ news.title }}</h2>
+                <p class="content">{{ news.content|safe }}</p>
+            </div>
+            <div class="news-info">
+                <p class="published">Опубликовано: {{ news.created_at|date:'Y-m-d H:i' }} <br> Количество просмотров: {{ news.views }} <br> Автор: {{ author_name }}</p>
+            </div>
+        </div>
+        
+        {% if authors_news %}
+            <div class="user_news">
+                <p>Другие статьи автора {{ author_name }}:</p>
+                <div class="author">
+                    <div class="photo">
+                        {% if author_info.photo %}
+                            <img src="{{ author_info.photo.url }}" alt="">
+                        {% else %}
+                            <img src="{% static 'img/default_login.jpg' %}" alt="">
+                        {% endif %}
+                    </div>
+                    <div class="name">
+                        <p>{{ author_info.first_name }} <br> {{ author_info.last_name }} <br> Количество статьей: {{ cnt_articles }} </p>
+                    </div>
+                </div>
+                <div class="other_news">
+                    {% for item in authors_news %}
+                        <div class="link">{{ forloop.counter }}. <a href="{{ item.get_absolute_url }}">{{ item.title|truncatewords:6 }}</a></div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+        
+        <div class="comments">
+            <div class="leave-comment">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <p>Оставить комментарий</p>
+                    <div class="form-group">
+                        {{ form.user_comment }}
+                        <div class="invalid-feedback">
+                            {{ form.user_comment.errors }}
+                        </div>
+                    </div>
+                    <button type="submit" id="comment_btn">Leave a comment</button>
+                </form>
+            </div>
+            <div class="another-comments">
+                <p class="quentity">Количество комментариев: {{ comments_quentity }}</p>
+                <div class="comments-body">
+                    {% if comments %}
+                        {% for comment in comments %}
+                            <div class="comment">
+                                <a href="{{ comment.get_absolute_url }}" style="text-decoration: none;">
+                                    <div class="comment-header">
+                                        <div class="comment-header">
+                                            <div class="user-icon-container">
+                                                {% if comment.user.user_base.photo %}
+                                                    <img class="user-icon" src="{{ comment.user.user_base.photo.url }}" alt="">
+                                                {% else %}
+                                                    <img class="user-icon" src="{% static 'img/default_login.jpg' %}" alt="">
+                                                {% endif %}
+                                            </div>
+                                            <p class="username">{{ comment.user.username }}</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <p class="name">{{ comment.user.first_name }} {{ comment.user.last_name }}</p>
+                                <p class="comment-text">{{ comment.user_comment }}</p>
+                                <p class="date">{{ comment.created_at|date:"d E Y, H:i" }}</p>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <p>Ваш комментарий будет первым!</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

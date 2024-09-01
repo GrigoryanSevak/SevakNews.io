@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block header %}
+    {% include 'include/_nav.html' %}
+{% endblock %}
+
+{% block main %}
+    <link rel="stylesheet" href="{% static 'css/create__style.css' %}">
+        <form method="POST" class="news-registration" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.non_field.errors }}
+            <div class="from-inner">
+                {{ form.as_p }}
+                {{form.media}}
+                {% if request.user.is_authenticated %}
+                    <button name="button_1" type="submit" id="select">Send for verification</button>
+                {% else %}
+                    <a href="{% url 'login' %}" style="text-decoration: none;"><div class="bt">Send for verification</div></a>
+                {% endif %}
+            </div>
+        </form>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

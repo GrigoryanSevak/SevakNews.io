@@ -1,0 +1,90 @@
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  clear: both;
+}
+
+.footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.footer .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.footer .col {
+  flex: 1;
+  margin: 20px;
+}
+
+.footer .social-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer .social-links li {
+  margin: 10px;
+}
+
+.footer .social-links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer .social-links a:hover {
+  color: #ccc;
+}
+
+.footer .copyright {
+  font-size: 14px;
+  color: #666;
+  margin-top: 20px;
+}
+
+.footer form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.footer input[type="email"] {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.footer input[type="email"]::placeholder {
+  color: #999;
+  font-size: 14px;
+}
+
+.footer button[type="submit"] {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+}
+
+.footer button[type="submit"]:hover {
+  background-color: #444;
+}

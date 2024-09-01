@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  {{ title }}
+{% endblock %}
+
+{% block header %}
+    {% include 'include/_nav.html' %}
+{% endblock %}
+
+{% block main %}
+    <link rel="stylesheet" href="{% static 'css/chat__style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/office__style.css' %}">
+    <div class="chat-container">
+        <script src="https://unpkg.com/htmx.org@1.8.5"></script>
+        <div hx-ws="connect:/chat/{{ slug }}/">
+            <div class="chat-messages" id="chat-messages">
+                {% for item in message %}
+                    <div class='person-a'>
+                        {% if item.user.user_base.photo %}
+                            <img class="icon" src="{{ item.user.user_base.photo.url }}" alt="User Photo">
+                        {% else %}
+                            <img class="icon" src="{% static 'img/default_login.jpg' %}" alt="Default Photo">
+                        {% endif %}
+                        <div class="message"><p><b>{{ item.user }}</b>: {{ item.message }}</p></div>
+                    </div>
+                {% endfor %}
+                <div id="messages"></div>
+            </div>
+
+            <div class="send-message">
+                <form hx-ws="send:submit">
+                    <input name="message" placeholder="Сообщение">
+                    <button type="submit"><img src="{% static 'img/send.jpg' %}" id="send_ico"></button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function scrollToBottom() {
+            const chatMessages = document.getElementById('chat-messages');
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+    
+        document.querySelector('.send-message form').addEventListener('submit', function() {
+            setTimeout(scrollToBottom, 100);
+        });
+    
+        ws.onmessage = function(event) {
+             if (event.data) {
+                 const newMessage = document.createElement('div');
+                 newMessage.innerHTML = event.data;
+                 document.getElementById('chat-messages').appendChild(newMessage);
+                 setTimeout(scrollToBottom, 100);
+             }
+        };
+    </script>
+    
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

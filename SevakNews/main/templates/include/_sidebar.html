@@ -1,0 +1,13 @@
+{% load tags %}
+{% load i18n %}
+{% load tags %}
+
+<div class="list-group">
+    {% get_categories as categories %}
+    {% for item in categories %}
+        <a href="{{ item.get_absolute_url }}" class="list-group-item list-group-item-action">
+            {{ item.title|translate }} 
+            <span class="badge bg-primary rounded-pill">{{ item.cnt }}</span>
+        </a>
+    {% endfor %}
+</div>

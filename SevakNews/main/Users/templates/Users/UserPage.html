@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block header %}
+    {% include 'include/_nav.html' %}
+{% endblock %}
+
+{% block main %}
+    <link rel="stylesheet" href="{% static 'css/office__style.css' %}">
+    {% if request.user.is_authenticated %}
+        <div class="user_data">
+            <div class="news">
+                <div class="news-content">
+                    {% if user_info.photo %}
+                        <img class='news-image ' src="{{ user_info.photo.url }}" alt="">
+                    {% else %}
+                        <img class='news-image ' src="{% static 'img/default_login.jpg' %}" alt="">
+                    {% endif %}
+                    <div class="news-content">
+                        <span class="category">{{ user_info.user }}</span>
+                        <p class="category">Имя: {{user_info.first_name }} {{user_info.last_name }}</p>
+                        <p class="content">E-mail: {{ user_info.user.email }}</p>
+                    </div>
+                    <div class="news-info">
+                        <p class="published">Аккаунт создан: {{ user_info.register_in|date:'Y-m-d' }}<br>
+                        Количество постов: {{ cnt_articles }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="user_news">
+                <p>Опубликованные статьи:</p>
+                {% if authors_news %}
+                    {% for item in authors_news %}
+                        <div class="link">{{ forloop.counter }}. <a href="{{ item.get_absolute_url }}">{{ item.title|truncatewords:6 }}</a></div>
+                    {% endfor %}
+                {% else %}
+                    <p>Нет статьей</p>
+                {% endif %}
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
+

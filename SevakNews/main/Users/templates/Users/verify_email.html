@@ -1,0 +1,36 @@
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+    }
+    .container {
+        width: 80%;
+        margin: 40px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .button {
+        background-color: #4CAF50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+    }
+    .button:hover {
+        background-color: #3e8e41;
+    }
+</style>
+
+{% autoescape off %}
+    <div class="container">
+        <h1>Привет {{ user.get_username }}!</h1>
+        <p>Пожалуйста перейдите по ссылке, чтобы закончить регистрацию.</p>
+        <a href="http://{{ domain }}{% url 'verify_email' uidb64=uid token=token %}">
+            <button class="button">Confirm</button>
+        </a>
+    </div>
+{% endautoescape %}

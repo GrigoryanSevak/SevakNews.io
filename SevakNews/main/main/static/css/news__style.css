@@ -1,0 +1,274 @@
+main {
+    display: flex;
+    /* justify-content: center; */
+    flex-wrap: wrap;
+    padding-top: 100px;
+}
+
+header {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+
+.news {
+    width: 750px;
+    background-color: #fafafa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.news-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+.news-content {
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.news-info {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    text-align: center;
+}
+
+.news-category {
+    font-weight: bold;
+    color: #337ab7;
+}
+
+.news-date {
+    font-size: 14px;
+    color: #666;
+}
+
+.news-views {
+    font-size: 14px;
+    color: #666;
+}
+
+.user_news {
+    font-family: 'Playfair Display', serif;
+    background-color: #fafafa;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 400px;
+    width: auto;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.user_news a {
+    text-decoration: none;
+    color: #000;
+}
+
+.user_news a:hover {
+    color: #337ab7;
+}
+
+.user_news p {
+    text-align: center;
+}
+
+.author {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 150px; /* Set a fixed height for the author container */
+}
+
+.photo {
+    margin-right: 20px;
+    height: 100%; /* Make the image container take up the full height */
+    overflow: hidden; /* Hide any overflow to crop the image */
+}
+
+.photo img {
+    width: 120px; /* Set a fixed width for the image */
+    height: 100%; /* Make the image take up the full height of its container */
+    object-fit: cover; /* Ensure the image is fully covered within the specified dimensions */
+    /* border-radius: 50%; Add a rounded effect to the image */
+}
+
+.name {
+    flex: 1; /* Take up the remaining space */
+}
+
+.name p {
+    margin: 0;
+    text-align: left;
+}
+
+.other_news {
+    margin-top: 20px;
+    max-height: 300px;
+    overflow-y: scroll;
+}
+
+.author-news {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 50px;
+    justify-content: center;
+}
+
+.comments {
+    width: 100%;
+    height: 400px;
+    background-color: #f7f7f7;
+    display: flex;
+    flex-direction: row;
+}
+
+.leave-comment {
+    width: 50%;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.leave-comment form {
+    display: flexbox;
+    flex-wrap: wrap;
+    text-align: center;
+    width: 100%;
+
+}
+
+.leave-comment form p {
+    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+}
+
+.leave-comment label {
+    margin-bottom: 10px;
+}
+
+.leave-comment textarea {
+    min-width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 100px;
+    margin-bottom: 10px;
+    resize: none;
+}
+
+#comment_btn {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    min-width: 200px;
+    height: 45px;
+    /* margin-left: 25%; */
+}
+
+#comment_btn:hover {
+    background-color: #3e8e41;
+}
+
+.another-comments {
+    font-family: "Montserrat", sans-serif;
+    width: 50%;
+    padding-bottom: 20px;
+}
+
+.another-comments .quentity {
+    text-align: center;
+    padding-top: 20px;
+    padding-right: 20px;
+}
+
+.comments-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    padding: 20px;
+    overflow-y: scroll;
+}
+
+.comment {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+  width: 100%;
+}
+
+.comment:last-child {
+  border-bottom: none;
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.user-icon-container {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 10px;
+}
+
+.user-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.username {
+  font-size: 16px;
+  color: #666;
+}
+
+.name {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.comment-text {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 20px;
+  padding-left: 60px;
+  text-align: justify;
+}
+
+.date {
+  font-size: 14px;
+  color: #999;
+  margin-top: 10px;
+}

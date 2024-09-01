@@ -1,0 +1,194 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Основные стили для навигационного бара */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  width: 100%;
+}
+
+.navbar .logo {
+  margin-right: 1rem;
+}
+
+.navbar .logo img {
+  width: 150px;
+}
+
+.navbar .navMenu {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .navMenu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navbar .navMenu ul li {
+  margin-right: 1rem;
+  font-size: 18px;
+  text-align: center;
+}
+
+.navbar .navMenu ul li:not(:first-child){
+  padding-left: 15px;
+}
+
+.navbar .navMenu ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+.navbar .button-container {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .button-container button {
+  margin-right: 1rem;
+}
+
+.navbar .language-switcher {
+  margin-left: 1rem;
+}
+
+/* Стили для мобильной версии */
+@media (max-width: 1000px) {
+  .navbar {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar .navMenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  }
+
+  .navbar .navMenu ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar .navMenu ul li {
+    margin-right: 0;
+    margin-bottom: 1rem;
+    border-bottom: solid white 1px;
+  }
+
+  .navbar .navMenu ul li a {
+    display: block;
+    padding: 1rem;
+  }
+
+  .navbar .button-container {
+    margin-top: 1rem;
+    display: flex; /* Ensure it remains visible */
+  }
+
+  .navbar .language-switcher {
+    margin-top: 1rem;
+  }
+
+  .navbar .navMenu.show {
+    display: block;
+  }
+
+  .navbar .toggle-button {
+    display: block;
+    position: relative;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+  }
+
+  .navbar .toggle-button i {
+    font-size: 1.5rem;
+    color: white;
+  }
+
+  .toggle-button {
+    background-color: #4CAF50;
+    border: none;
+    height: 40px;
+    width: 40px;
+    border-radius: 5px;
+  }
+
+  .toggle-button:hover {
+    background-color: #3e8e41;
+  }
+
+  .navbar .navMenu ul li:not(:first-child){
+    padding-left: 0;
+  }
+}
+
+/* Стили для кнопки разворачивания меню */
+.toggle-button {
+  display: none;
+}
+
+.toggle-button i {
+  font-size: 1.5rem;
+  color: white;
+}
+
+/* Стили для кнопок входа/регистрации */
+.login-button, .signup-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.login-button:hover, .signup-button:hover {
+  background-color: #3e8e41;
+}
+
+/* Стили для языкового переключателя */
+.language-switcher select {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
+}
+
+.language-switcher input[type="submit"] {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
+
+.language-switcher input[type="submit"]:hover {
+  background-color: #3e8e41;
+}

@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+  {{ title }}
+{% endblock %}
+
+{% block header %}
+    {% include 'include/_nav.html' %}
+{% endblock %}
+
+
+{% block main %}
+<link rel="stylesheet" href="{% static 'css/main_style.css' %}">
+<link rel="stylesheet" href="{% static 'css/sidebar1___style.css' %}">
+<link rel="stylesheet" href="{% static 'css/advertisement-style.css' %}">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+<script src="{% static 'js/form.js' %}"></script>
+
+    <div class="box1">
+      <div class="search">
+        <input type="search"
+            id="search-room"
+            placeholder={% trans 'Введите заголовок...' %}
+            name="q"
+            hx-get="{% url 'search-task' %}" 
+            hx-trigger="keyup changed delay:150ms"
+            hx-target=".box2"       
+        >
+
+        {% include 'include/_sidebar.html' %}
+        
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form.non_field.errors }}
+            <div class="form-group">
+                <label for="{{ form.filter_date.id_for_label }}">{% trans 'Фильтрация по дате' %}</label>
+                {{ form.filter_date }}
+                <div class="invalid-feedback">
+                    {{ form.filter_date.errors }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="{{ filter.form.created_at.id_for_label }}"></label>
+                {{ filter.form.created_at }}
+                <div class="invalid-feedback">
+                    {{ filter.form.created_at.errors }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="{{ form.views.id_for_label }}">{% trans 'Фильтрация по просмотрам' %}</label>
+                {{ form.views }}
+                <output id="views-output">10000</output>
+                <div class="invalid-feedback">
+                    {{ form.views.errors }}
+                </div>
+            </div>
+            <button type="submit">Filter</button>
+            <button type="reset">Reset</button>
+        </form>
+
+        <script>
+          document.addEventListener('DOMContentLoaded', function() {
+              const viewsInput = document.getElementById('{{ form.views.id_for_label }}');
+              const viewsOutput = document.getElementById('views-output');
+          
+              viewsInput.addEventListener('input', function() {
+                  if (viewsInput.value === viewsInput.max) {
+                      viewsOutput.value = '10000+';
+                  } else {
+                      viewsOutput.value = viewsInput.value;
+                  }
+              });
+          
+              // Set the initial value of the output to the input value
+              if (viewsInput.value === viewsInput.max) {
+                  viewsOutput.value = '10000+';
+              } else {
+                  viewsOutput.value = viewsInput.value;
+              }
+          });
+        </script>
+        
+      </div>
+    </div>
+
+    <div class="box2">
+      {% include 'app/task_list.html' %}
+      {% include 'include/_paginator.html' %}
+    </div>
+    
+    <div class="box3">
+      <a target="_blank" href="https://www.youtube.com/embed/Fwn5-Po4x1c?list=PL8iwDFZp06lRCH-MSJQUySainR7hpIF3O&autoplay=1&mute=1&controls=0" style="text-decoration: none">
+        <div class="advertisement">
+          <div class="header-video">
+            <video autoplay muted loop>
+              <source src="{% static 'AdvertisementVideo/Unest.mp4' %}" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="body">
+            <p>Увеличьте свой онлайн-успех с Unet.by Получите надежный и быстрый интернет ➔</p>
+          </div>
+        </div>
+      </a>
+      <a target="_blank" href="https://www.youtube.com/embed/ZTAHVDFA_gY?list=PL8iwDFZp06lRCH-MSJQUySainR7hpIF3O&autoplay=1&mute=1&controls=0" style="text-decoration: none">
+        <div class="advertisement">
+          <div class="header-video">
+            <video autoplay muted loop>
+              <source src="{% static 'AdvertisementVideo/Nation.mp4' %}" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="body">
+            <p>Присоединяйтесь к Национальным проектам России и измените свою жизнь к лучшему ➔</p>
+          </div>
+        </div>
+      </a>
+      <a target="_blank" href="https://www.youtube.com/embed/TMhE_pVXmKA?list=PL8iwDFZp06lRCH-MSJQUySainR7hpIF3O&autoplay=1&mute=1&controls=0" style="text-decoration: none">
+        <div class="advertisement">
+          <div class="header-video">
+            <video autoplay muted loop>
+              <source src="{% static 'AdvertisementVideo/Fitnes.mp4' %}" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="body">
+            <p>Сделай свой день более активным с нашим фитнес-центром ➔</p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}
+

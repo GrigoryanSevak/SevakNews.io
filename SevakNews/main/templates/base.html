@@ -1,0 +1,107 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/nav_style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/cards_style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/paginator__style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/notification__style.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer__style.css' %}">
+    <!-- <script src="https://unpkg.com/htmx.org@2.0.0"
+            integrity="sha384-wS5l5IKJBvK6sPTKa2WZ1js3d947pvWXbPJ1OmWfEuxLgeHcEbjUUA5i9V5ZkpCw"
+            crossorigin="anonymous">
+    </script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/htmx.org@1.8.5"></script>
+</head>
+<body>
+    <div class="layout">
+        <div class="toats" style="z-index: 9999; position: fixed;">
+            {% if messages %}
+                {% for message in messages %}
+                    {% if message.tags == 'error' %}
+                        <div class="toasts">
+                            <div role="alert" class="fade alert alert-warning alert-dismissible show">
+                                <button type="button" class="btn-close" aria-label="Close alert" onclick="closeAlert(this)"></button>
+                                <div class="d-flex">
+                                    <img alt="noti-icon" src="https://brand.workingsolutions.com/components/images/warning.svg" width="28" class="me-4">
+                                    <div>
+                                        <div class="alert-heading h4">Error</div>
+                                        <p>{{ message }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% else %}
+                    <div class="toasts">
+                        <div role="alert" class="fade alert alert-info alert-dismissible show">
+                            <button type="button" class="btn-close" aria-label="Close alert" onclick="closeAlert(this)"></button>
+                            <div class="d-flex">
+                                <img alt="noti-icon" src="https://brand.workingsolutions.com/components/images/information.svg" width="28" class="me-4">
+                                <div>
+                                    <div class="alert-heading h4">Info</div>
+                                    <p>{{ message }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        </div>
+
+        <header>
+            {% block header %}
+            {% endblock %}
+        </header>
+
+        <main>
+            {% block main %}
+                <div class="box1"></div>
+                <div class="box2"></div>
+                <div class="box3"></div>
+            {% endblock %}
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h4>{% trans 'О нас' %}</h4>
+                        <p>{% trans 'SevakNews - ведущий новостной онлайн-портал, посвященный предоставлению вам последних новостей, обновлений и аналитической информации со всего мира. Наша команда опытных журналистов и аналитиков неустанно работает над предоставлением вам точной и непредвзятой информации.' %}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h4>{% trans 'Оставайтесь на связи' %}</h4>
+                        <ul class="social-links">
+                            <li><a href="#" target="_blank"><i class="fa fa-facebook fa-3x"></i></a></li>
+                            <li><a href="#" target="_blank"><i class="fa fa-twitter fa-3x"></i></a></li>
+                            <li><a href="#" target="_blank"><i class="fa fa-instagram fa-3x"></i></a></li>
+                            <li><a href="#" target="_blank"><i class="fa fa-youtube fa-3x"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h4>{% trans 'Подпишитесь на нашу рассылку новостей' %}</h4>
+                        <form method="POST">
+                            {% csrf_token %}
+                            {{ form3 }}
+                            <button name="subscribe" type="submit">{% trans 'Подписаться' %}</button>
+                        </form>
+                    </div>
+                </div>
+                <hr>
+                <p class="copyright">Copyright &copy; 2024 SevakNews. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/toast.js' %}"></script>
+</body>
+</html>

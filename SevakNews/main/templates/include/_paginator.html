@@ -1,0 +1,23 @@
+{% if page_obj.has_other_pages %} <!-- Проверяет существует ли больше страниц чем 1 -->
+    <nav aria-label="...">
+        <ul class="pagination">
+        {% if page_obj.has_previous %} <!-- Смотрит существует ли предыдущая страница -->
+            <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>
+            </li> <!-- Выводит предыдущий номер от текущего -->
+        {% endif %}
+        {% for page in page_obj.paginator.page_range %}
+            {% if page_obj.number == page %}
+            <li class="page-item active"><a class="page-link" href="?page={{ page }}">{{ page }}</a></li>
+            {% elif page > page_obj.number|add:-3 and page < page_obj.number|add:3 %}
+            <li class="page-item"><a class="page-link" href="?page={{ page }}">{{ page }}</a></li>
+            {% endif %}
+        {% endfor %}
+        {% if page_obj.has_next %} <!-- Смотрит существует ли следующая страница -->
+            <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+            </li> <!-- Выводит следующий номер от текущего -->
+        {% endif %}
+        </ul>
+    </nav>
+{% endif %}

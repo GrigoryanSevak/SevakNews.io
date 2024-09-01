@@ -1,0 +1,134 @@
+*{
+  box-sizing:border-box;
+}
+body{
+  margin:0;
+  font:.9em/1.5 'Roboto';
+  cursor:default;
+}
+.box{
+  width:80%;
+  max-width:400px;
+  margin:2em auto;
+}
+.message{
+  width:calc(100% - 100px);
+  border-radius:15px;
+  padding:1em;
+}
+.person-a .message{
+  background:#f8f8f8;
+}
+.person-a{
+  display:flex;
+  align-items:flex-end;
+  margin-bottom: 15px;
+}
+.icon{
+  --size:40px;
+  width:var(--size);
+  height:var(--size);
+  background:url();
+  background-position:center;
+  background-size:cover;
+  object-fit: cover;
+  border-radius:100%;
+  margin-right:.8em;
+  position:relative;
+}
+.icon::after{
+  content:' ';
+  position:absolute;
+  width:10px;
+  height:10px;
+  background:lightgreen;
+  border-radius:100%;
+  bottom:0;
+  right:0;
+}
+.person-b .message{
+  background:lightblue;
+  margin:2em 0;
+  margin-left:100px;
+  color:white;
+  text-align:right;
+}
+.message svg{
+  height:26px;
+  vertical-align:middle;
+}
+.last{
+  width:auto;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+.chat-container {
+  width: 50vw;
+}
+
+@media (max-width: 500px) {
+  .chat-container {
+    width: 100vw;
+  }
+
+  .navbar .logo {
+    margin-right: 0;
+  }
+
+  
+
+  .navbar {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 0;
+  }
+}
+
+.chat-messages {
+  max-height: 700px;
+  min-height: 500px;
+  overflow-y: auto;
+  padding-top: 20px;
+  background-color: #818185;
+  border-radius: 10px 20px 0 0;
+}
+
+.send-message {
+  display: flex;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #818185;
+  border-radius: 0 0 10px 10px;
+}
+
+.send-message form {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.send-message input[name="message"] {
+    height: 40px;
+    width: 62%;
+    border-radius: 20px;
+    border: none;
+    padding-left: 15px;
+}
+
+#send_ico {
+    width: 40px;
+    height: 40px;
+}
+
+.send-message button[type="submit"] {
+    margin-left: 10px;
+    border: none;
+    border-radius: 100%;
+}

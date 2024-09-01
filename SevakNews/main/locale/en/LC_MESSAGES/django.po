@@ -1,0 +1,155 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-27 20:53+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\templates\include\_sidebar.html:8
+msgid "Политика"
+msgstr "Politics"
+
+#: .\templates\include\_sidebar.html:8
+msgid "Армия"
+msgstr "Army"
+
+#: .\templates\include\_sidebar.html:8
+msgid "Религия"
+msgstr "Religion"
+
+#: .\templates\include\_sidebar.html:8
+msgid "Спорт"
+msgstr "Sport"
+
+#: .\templates\include\_sidebar.html:8
+msgid "Общество"
+msgstr "Society"
+
+#: .\templates\include\_sidebar.html:8
+msgid "Туризм"
+msgstr "Tourism"
+
+#: .\templates\include\_sidebar.html:8
+msgid "Экономика"
+msgstr "Economy"
+
+#: .\templates\include\_sidebar.html:8
+msgid "Наука"
+msgstr "Science"
+
+#: .\templates\include\_sidebar.html:8
+msgid "Культура"
+msgstr "Culture"
+
+#: .\app\forms.py:35
+msgid "Сегодня"
+msgstr "Today"
+
+#: .\app\forms.py:36
+msgid "За 2 дня"
+msgstr "in 2 days"
+
+#: .\app\forms.py:37
+msgid "За 3 дня"
+msgstr "in 3 days"
+
+#: .\app\forms.py:38
+msgid "За все время"
+msgstr "For all the time"
+
+#: .\app\forms.py:45
+msgid "Количество просмотров"
+msgstr "Views"
+
+#: .\app\templates\app\category.html:27 .\app\templates\app\home.html:39
+msgid "Фильтрация по дате"
+msgstr "Filtering by date"
+
+#: .\app\templates\app\category.html:41 .\app\templates\app\home.html:53
+msgid "Фильтрация по просмотрам"
+msgstr "Filtering by views"
+
+#: .\app\templates\app\home.html:26
+msgid "Введите заголовок..."
+msgstr "Enter the title..."
+
+#: .\app\templates\app\task_list.html:19 .\app\templates\app\task_list.html:23
+msgid "Подробнее"
+msgstr "Read more"
+
+#: .\templates\base.html:77
+msgid "О нас"
+msgstr "About us"
+
+#: .\templates\base.html:78
+msgid ""
+"SevakNews - ведущий новостной онлайн-портал, посвященный предоставлению вам "
+"последних новостей, обновлений и аналитической информации со всего мира. "
+"Наша команда опытных журналистов и аналитиков неустанно работает над "
+"предоставлением вам точной и непредвзятой информации."
+msgstr ""
+"SevakNews is a leading online news portal dedicated to providing youwith the "
+"latest news, updates and analytical information from around the world. Our "
+"team of experienced journalists and analysts work tirelesslyto provide you "
+"with accurate and unbiased information."
+
+#: .\templates\base.html:81
+msgid "Оставайтесь на связи"
+msgstr "Stay connected"
+
+#: .\templates\base.html:90
+msgid "Подпишитесь на нашу рассылку новостей"
+msgstr "Subscribe to Our Newsletter"
+
+#: .\templates\base.html:94
+msgid "Подписаться"
+msgstr "Subscribe"
+
+#: .\templates\include\_nav.html:10
+msgid "Главная"
+msgstr "Home"
+
+#: .\templates\include\_nav.html:11
+msgid "Создать"
+msgstr "Create"
+
+#: .\templates\include\_nav.html:12
+msgid "Техподдержка"
+msgstr "Teschnical support"
+
+#: .\templates\include\_nav.html:13
+msgid "Рассылка"
+msgstr "Mailing"
+
+#: .\templates\include\_nav.html:19
+msgid "Кабинет"
+msgstr "Office"
+
+#: .\templates\include\_nav.html:20
+msgid "Выйти"
+msgstr "Logout"
+
+#: .\templates\include\_nav.html:22
+msgid "Войти"
+msgstr "Login"
+
+#: .\templates\include\_nav.html:23
+msgid "Регистрация"
+msgstr "Sign up"
+
+#: .\templates\include\_nav.html:40
+msgid "Изменить"
+msgstr "Change"

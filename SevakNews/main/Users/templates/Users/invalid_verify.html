@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+
+{% block main %}
+    <div class="row">
+        <p>Ваша ссылка не корректна, залогиньтесь снова</p>
+        <a href="{% url 'login' %}"></a>
+    </div>
+{% endblock %}

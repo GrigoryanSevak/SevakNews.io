@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block header %}
+{% include 'include/_nav.html' %}
+{% endblock %}
+
+{% block main %}
+<link rel="stylesheet" href="{% static 'css/send_mass_mail__style.css' %}">
+    <form method="POST" class="news-registration" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.non_field.errors }}
+        <div class="form-inner">
+            {{ form }}
+            {{ form.media }}  <!-- Include the media here -->
+        </div>
+        <button type="submit">Send message</button>
+    </form>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

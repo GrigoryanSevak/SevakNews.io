@@ -1,0 +1,29 @@
+{% load i18n %}
+
+
+{% for item in news %}
+<div class="wrapper">
+    <div class="product-img">
+      <img src="{{ item.photo.url }}">
+    </div>
+    <div class="product-info">
+      <div class="product-text">
+
+            <h1>{{ item.title|truncatewords:4 }}</h1>
+            <h2>{{ item.category }}</h2>
+            <p>{{ item.content|striptags|safe|truncatewords:8 }}</p>
+
+        </div>
+      <div class="product-price-btn">
+        {% if request.user.is_authenticated %}
+          <a href="{{ item.get_absolute_url }}"><button type="button" style="text-transform: capitalize;">{% trans 'Подробнее' %}</button></a>
+        {% else %}
+        <form action="{% url 'not_authenticated' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" style="text-transform: capitalize;">{% trans 'Подробнее' %}</button>
+        </form>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endfor %}
